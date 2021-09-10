@@ -1,0 +1,47 @@
+section {
+  p {
+    text-align: center;
+  }
+
+  div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    grid-gap: .5rem;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    grid-gap: 1rem;
+
+    mat-form-field {
+      width: 100%;
+      max-width: 18rem;
+
+      mat-label {
+        color: #fff;
+      }
+
+      mat-hint {
+        color: #fff;
+        font-weight: 700;
+      }
+
+      input {
+        font-size: 1.6rem;
+        font-weight: 700;
+      }
+    }
+  }
+}
+
+div.controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  grid-gap: 1rem;
+}
