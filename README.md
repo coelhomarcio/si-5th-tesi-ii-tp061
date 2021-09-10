@@ -3,7 +3,6 @@
 [See on StackBlitz ⚡️](https://stackblitz.com/edit/si-5th-tesi-ii-tp061)
 
 ---
-
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change
