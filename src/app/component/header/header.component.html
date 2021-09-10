@@ -1,0 +1,53 @@
+<header>
+  <div class="head">
+    <button mat-mini-fab (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <h1>{{ title }}</h1>
+  </div>
+  <div class="foot">
+    <p>{{ name }}</p>
+    <p><small>RA {{ ra }}</small></p>
+    <p *ngFor="let git of gits">
+      <a href="{{ git.link }}" target="_blank">{{ git.label }}
+        <mat-icon>launch</mat-icon>
+      </a>
+    </p>
+  </div>
+  <div class="nav">
+    <mat-divider></mat-divider>
+    <div class="nav-list">
+      <mat-list>
+        <a mat-flat-button color="primary" *ngFor="let navListItem of navListItems"
+           routerLink="{{ navListItem.link }}" routerLinkActive="active">
+          <mat-list-item>
+            <mat-icon>{{ navListItem.icon }}</mat-icon>
+            <span>&nbsp;&nbsp;{{ navListItem.label }}</span>
+          </mat-list-item>
+        </a>
+      </mat-list>
+    </div>
+  </div>
+</header>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav>
+    <div class="sidenav-list">
+      <mat-list>
+        <a mat-flat-button (click)="sidenav.close()" *ngFor="let navListItem of navListItems"
+           routerLink="{{ navListItem.link }}" routerLinkActive="active">
+          <mat-list-item>
+            <mat-icon>{{ navListItem.icon }}</mat-icon>
+            <span>&nbsp;&nbsp;{{ navListItem.label }}</span>
+          </mat-list-item>
+        </a>
+      </mat-list>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="main-container">
+      <main>
+        <router-outlet></router-outlet>
+      </main>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
