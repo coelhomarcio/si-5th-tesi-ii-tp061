@@ -1,0 +1,14 @@
+section {
+  form {
+    mat-form-field {
+      max-width: 18rem;
+    }
+  }
+}
+
+div.controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  grid-gap: 1rem;
+}

@@ -1,0 +1,52 @@
+<div class="main-content">
+  <h2>{{ subTitle }}</h2>
+  <section>
+    <h3>{{ sectionSystemTitle }}</h3>
+    <div>
+      <mat-icon>timer</mat-icon>
+      <span *ngIf="systemTimer.systemDay === 1">{{ systemTimer.systemDay }} dia </span>
+      <span *ngIf="systemTimer.systemDay > 1">{{ systemTimer.systemDay }} dias </span>
+      <span>{{ systemTimerOutput() }}</span>
+    </div>
+  </section>
+  <mat-divider></mat-divider>
+  <section>
+    <h3>{{ sectionUserTitle }}</h3>
+    <p *ngIf="userTimer.userMillisecond">
+      Cada acréscimo de 1.0 leva o tempo de {{ userTimer.userMillisecond * .001 | number : "1.3-3" : "pt" }}s
+    </p>
+    <div>
+      <mat-icon>timer</mat-icon>
+      <span *ngIf="systemTimer.userDay === 1">{{ systemTimer.userDay }} dia </span>
+      <span *ngIf="systemTimer.userDay > 1">{{ systemTimer.userDay }} dias </span>
+      <span>{{ userTimerOutput() }}</span>
+    </div>
+  </section>
+  <div class="controls">
+    <button (click)="userTimer.userTimerPlay()" mat-raised-button color="primary"
+            [disabled]="userTimer.isUserInterval() || error()">
+      <mat-icon>play_arrow</mat-icon>
+    </button>
+    <button (click)="userTimer.userTimerPause()" mat-raised-button color="primary"
+            [disabled]="!userTimer.isUserInterval() || error()">
+      <mat-icon>pause</mat-icon>
+    </button>
+    <button (click)="userTimer.userTimerStop()" mat-raised-button color="primary"
+            [disabled]="(!userTimer.isUserInterval() && userTimer.userTimer === 0) || error()">
+      <mat-icon>stop</mat-icon>
+    </button>
+  </div>
+  <mat-divider></mat-divider>
+  <section>
+    <h3>{{ sectionFormTitle }}</h3>
+    <form (ngSubmit)="submit()">
+      <mat-form-field appearance="fill">
+        <mat-label>Valor em milissegundo</mat-label>
+        <mat-hint *ngIf="error()">Igual ou maior que 100ms</mat-hint>
+        <span matSuffix>&nbsp;&nbsp;&nbsp;&nbsp;ms</span>
+        <input matInput type="number" [(ngModel)]="userTimer.userMillisecondModel" name="millisecond"
+               [disabled]="userTimer.isUserInterval()">
+      </mat-form-field>
+    </form>
+  </section>
+</div>
