@@ -47,4 +47,48 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+
+  div.main-container {
+    padding: 2rem;
+
+    main {
+      border-radius: .5rem;
+      padding: 2rem;
+      box-shadow: 0 0 .25rem #121212;
+      color: #fff;
+      background-color: #ff4081;
+
+      div.main-content {
+        display: flex;
+        flex-direction: column;
+        grid-gap: 2rem;
+
+        h2 {
+          text-align: center;
+        }
+
+        section {
+          h3 {
+            font-weight: 700;
+            text-indent: 2.7rem;
+          }
+
+          p {
+            text-indent: 2.7rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  div.main-container {
+    display: flex;
+    justify-content: center;
+
+    main {
+      width: 70%;
+    }
+  }
 }
