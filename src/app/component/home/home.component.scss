@@ -1,0 +1,14 @@
+section {
+  ul {
+    li {
+      padding-left: .5rem;
+    }
+
+    li::marker {
+      padding-right: 1rem;
+      font-size: 2rem;
+      font-weight: bold;
+      content: "»";
+    }
+  }
+}
