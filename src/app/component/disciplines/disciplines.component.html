@@ -1,0 +1,27 @@
+<div class="main-content">
+  <h2>{{ subTitle }}</h2>
+  <section>
+    <h3>{{ sectionDisciplinesTitle }}</h3>
+    <ul>
+      <li *ngFor="let discipline of disciplines.disciplines, index as i">
+        <mat-icon>school</mat-icon>
+        <span>{{ discipline }}</span>
+        <button (click)="disciplines.deleteDiscipline(i)" mat-mini-fab color="white">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </li>
+    </ul>
+  </section>
+  <mat-divider></mat-divider>
+  <section>
+    <h3>{{ sectionFormTitle }}</h3>
+    <form (ngSubmit)="submit()">
+      <mat-form-field appearance="fill">
+        <mat-label>Disciplina</mat-label>
+        <mat-hint *ngIf="error()">Campo obrigatório</mat-hint>
+        <input matInput type="text" [(ngModel)]="disciplines.disciplineModel" name="discipline">
+      </mat-form-field>
+      <button type="submit" mat-raised-button color="primary" [disabled]="error()">Adicionar</button>
+    </form>
+  </section>
+</div>
